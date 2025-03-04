@@ -1,0 +1,9 @@
+Collecting loguru
+  Using cached loguru-0.7.3-py3-none-any.whl.metadata (22 kB)
+Requirement already satisfied: colorama>=0.3.4 in c:\users\samue\onedrive\desktop\research assistant\venv_new\lib\site-packages (from loguru) (0.4.6)
+Collecting win32-setctime>=1.0.0 (from loguru)
+  Using cached win32_setctime-1.2.0-py3-none-any.whl.metadata (2.4 kB)
+Using cached loguru-0.7.3-py3-none-any.whl (61 kB)
+Using cached win32_setctime-1.2.0-py3-none-any.whl (4.1 kB)
+Installing collected packages: win32-setctime, loguru
+Successfully installed loguru-0.7.3 win32-setctime-1.2.0

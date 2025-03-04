@@ -1,0 +1,264 @@
+2025-03-04 11:55:34.139 | INFO     | app.main:log_requests:109 - Request received - IP: 127.0.0.1, Path: /api/query
+2025-03-04 11:55:34.196 | INFO     | app.main:get_agents:59 - Initializing agents...
+2025-03-04 11:55:34.196 | INFO     | app.models.qdrant_store:get_qdrant_store:49 - Connecting to Qdrant at https://12bbc0a4-833b-4e01-880e-fa75e8e962f6.europe-west3-0.gcp.cloud.qdrant.io:6333, collection: AASTU
+2025-03-04 11:55:44.607 | INFO     | app.main:get_agents:67 - Agents initialized successfully in 10.41 seconds
+2025-03-04 11:55:44.609 | INFO     | app.main:query:138 - Processing query: 'Ethiopian Economy' with agent: summarization
+2025-03-04 11:59:17.975 | INFO     | app.main:log_requests:109 - Request received - IP: 127.0.0.1, Path: /
+2025-03-04 11:59:18.174 | INFO     | app.main:log_requests:115 - Request completed - IP: 127.0.0.1, Path: /, Time: 0.22s, Status: 200
+2025-03-04 11:59:32.018 | INFO     | app.main:log_requests:109 - Request received - IP: 127.0.0.1, Path: /api/query
+2025-03-04 11:59:32.097 | INFO     | app.main:query:138 - Processing query: 'Ethiopian  Economy' with agent: summarization
+2025-03-04 12:27:19.793 | INFO     | app.main:sanitize_openai_api_key:39 - Sanitized OpenAI API key format
+2025-03-04 12:28:15.177 | INFO     | app.main:log_requests:109 - Request received - IP: 127.0.0.1, Path: /
+2025-03-04 12:28:15.406 | INFO     | app.main:log_requests:115 - Request completed - IP: 127.0.0.1, Path: /, Time: 0.24s, Status: 200
+2025-03-04 12:28:15.499 | INFO     | app.main:log_requests:109 - Request received - IP: 127.0.0.1, Path: /static/css/styles.css
+2025-03-04 12:28:15.510 | INFO     | app.main:log_requests:109 - Request received - IP: 127.0.0.1, Path: /static/js/main.js
+2025-03-04 12:28:15.879 | INFO     | app.main:log_requests:115 - Request completed - IP: 127.0.0.1, Path: /static/js/main.js, Time: 0.37s, Status: 304
+2025-03-04 12:28:15.882 | INFO     | app.main:log_requests:115 - Request completed - IP: 127.0.0.1, Path: /static/css/styles.css, Time: 0.38s, Status: 304
+2025-03-04 12:28:39.218 | INFO     | app.main:log_requests:154 - Request received - IP: 127.0.0.1, Path: /api/query
+2025-03-04 12:28:39.230 | INFO     | app.main:get_agents:74 - Initializing agents...
+2025-03-04 12:28:39.230 | INFO     | app.models.qdrant_store:get_qdrant_store:49 - Connecting to Qdrant at https://12bbc0a4-833b-4e01-880e-fa75e8e962f6.europe-west3-0.gcp.cloud.qdrant.io:6333, collection: AASTU
+2025-03-04 12:28:45.614 | INFO     | app.main:get_agents:86 - Initializing summarization agent...
+2025-03-04 12:28:48.886 | INFO     | app.agents.summarization_agent:__init__:43 - Successfully initialized ChatOpenAI
+2025-03-04 12:28:48.889 | INFO     | app.main:get_agents:89 - Summarization agent initialized successfully
+2025-03-04 12:28:48.889 | INFO     | app.main:get_agents:95 - Initializing literature review agent...
+2025-03-04 12:28:52.526 | INFO     | app.agents.literature_review_agent:__init__:43 - Successfully initialized ChatOpenAI for literature review agent
+2025-03-04 12:28:52.527 | INFO     | app.main:get_agents:98 - Literature review agent initialized successfully
+2025-03-04 12:28:52.527 | INFO     | app.main:get_agents:104 - Initializing deep research agent...
+2025-03-04 12:28:56.109 | INFO     | app.agents.deep_research_agent:__init__:43 - Successfully initialized ChatOpenAI for deep research agent
+2025-03-04 12:28:56.110 | INFO     | app.main:get_agents:107 - Deep research agent initialized successfully
+2025-03-04 12:28:56.111 | INFO     | app.main:get_agents:112 - Agents initialized successfully in 16.88 seconds
+2025-03-04 12:28:56.112 | INFO     | app.main:query:183 - Processing query: 'Ethiopian Economics' with agent: summarization
+2025-03-04 12:28:56.113 | INFO     | app.agents.summarization_agent:process_query:135 - Processing query: 'Ethiopian Economics' with detail level: medium, max_results: 5
+2025-03-04 12:28:56.113 | INFO     | app.agents.base_agent:_retrieve_documents:49 - Retrieving documents for query: Ethiopian Economics, max_results: 5
+2025-03-04 12:28:57.577 | ERROR    | app.agents.base_agent:_retrieve_documents:67 - Error retrieving documents: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-03-04 12:28:58.170 | ERROR    | app.agents.base_agent:_retrieve_documents:68 - Traceback (most recent call last):
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\agents\base_agent.py", line 50, in _retrieve_documents
+    documents = self.vector_store.similarity_search_with_relevance_scores(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 1970, in _similarity_search_with_relevance_scores
+    return self.similarity_search_with_score(query, k, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 365, in similarity_search_with_score
+    self._embed_query(query),
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 2065, in _embed_query
+    embedding = self.embeddings.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 629, in embed_query
+    return self.embed_documents([text])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 588, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=engine)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 483, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\resources\embeddings.py", line 125, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1283, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 960, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1064, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2025-03-04 12:28:58.170 | WARNING  | app.agents.summarization_agent:process_query:147 - No documents found for query: Ethiopian Economics
+2025-03-04 12:28:58.172 | INFO     | app.main:query:235 - Query processed in 2.06 seconds
+2025-03-04 12:28:58.173 | INFO     | app.main:log_requests:160 - Request completed - IP: 127.0.0.1, Path: /api/query, Time: 18.96s, Status: 200
+2025-03-04 12:31:38.319 | INFO     | app.main:log_requests:154 - Request received - IP: 127.0.0.1, Path: /api/query
+2025-03-04 12:31:38.606 | INFO     | app.main:query:183 - Processing query: 'Economy' with agent: summarization
+2025-03-04 12:31:38.609 | INFO     | app.agents.summarization_agent:process_query:135 - Processing query: 'Economy' with detail level: medium, max_results: 5
+2025-03-04 12:31:38.610 | INFO     | app.agents.base_agent:_retrieve_documents:49 - Retrieving documents for query: Economy, max_results: 5
+2025-03-04 12:31:39.553 | ERROR    | app.agents.base_agent:_retrieve_documents:67 - Error retrieving documents: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-03-04 12:31:39.559 | ERROR    | app.agents.base_agent:_retrieve_documents:68 - Traceback (most recent call last):
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\agents\base_agent.py", line 50, in _retrieve_documents
+    documents = self.vector_store.similarity_search_with_relevance_scores(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 1970, in _similarity_search_with_relevance_scores
+    return self.similarity_search_with_score(query, k, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 365, in similarity_search_with_score
+    self._embed_query(query),
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 2065, in _embed_query
+    embedding = self.embeddings.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 629, in embed_query
+    return self.embed_documents([text])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 588, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=engine)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 483, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\resources\embeddings.py", line 125, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1283, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 960, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1064, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2025-03-04 12:31:39.561 | WARNING  | app.agents.summarization_agent:process_query:147 - No documents found for query: Economy
+2025-03-04 12:31:39.561 | INFO     | app.main:query:235 - Query processed in 0.96 seconds
+2025-03-04 12:31:39.571 | INFO     | app.main:log_requests:160 - Request completed - IP: 127.0.0.1, Path: /api/query, Time: 1.26s, Status: 200
+2025-03-04 12:31:43.915 | INFO     | app.main:log_requests:154 - Request received - IP: 127.0.0.1, Path: /api/query
+2025-03-04 12:31:43.918 | INFO     | app.main:query:183 - Processing query: 'Economy' with agent: literature_review
+2025-03-04 12:31:43.919 | INFO     | app.agents.base_agent:_retrieve_documents:49 - Retrieving documents for query: Economy, max_results: 10
+2025-03-04 12:31:44.665 | ERROR    | app.agents.base_agent:_retrieve_documents:67 - Error retrieving documents: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-03-04 12:31:44.667 | ERROR    | app.agents.base_agent:_retrieve_documents:68 - Traceback (most recent call last):
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\agents\base_agent.py", line 50, in _retrieve_documents
+    documents = self.vector_store.similarity_search_with_relevance_scores(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 1970, in _similarity_search_with_relevance_scores
+    return self.similarity_search_with_score(query, k, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 365, in similarity_search_with_score
+    self._embed_query(query),
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 2065, in _embed_query
+    embedding = self.embeddings.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 629, in embed_query
+    return self.embed_documents([text])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 588, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=engine)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 483, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\resources\embeddings.py", line 125, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1283, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 960, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1064, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2025-03-04 12:31:45.590 | ERROR    | app.main:query:227 - Error during query processing: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-03-04 12:31:46.069 | ERROR    | app.main:query:228 - Traceback (most recent call last):
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\main.py", line 221, in query
+    result, sources = agent.process_query(
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\agents\literature_review_agent.py", line 152, in process_query
+    result = self.workflow.invoke(initial_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langgraph\pregel\__init__.py", line 1535, in invoke
+    for chunk in self.stream(
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langgraph\pregel\__init__.py", line 1273, in stream
+    for _ in runner.tick(
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langgraph\pregel\runner.py", line 56, in tick
+    run_with_retry(t, retry_policy)
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langgraph\pregel\retry.py", line 29, in run_with_retry
+    task.proc.invoke(task.input, config)
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langgraph\utils\runnable.py", line 410, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langgraph\utils\runnable.py", line 184, in invoke
+    ret = context.run(self.func, input, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\agents\literature_review_agent.py", line 92, in create_review
+    response = self.llm.invoke(messages)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\language_models\chat_models.py", line 284, in invoke
+    self.generate_prompt(
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\language_models\chat_models.py", line 860, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\language_models\chat_models.py", line 690, in generate
+    self._generate_with_cache(
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\language_models\chat_models.py", line 925, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\chat_models\base.py", line 800, in _generate
+    response = self.client.create(**payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_utils\_utils.py", line 279, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\resources\chat\completions.py", line 850, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1283, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 960, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1064, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2025-03-04 12:31:46.070 | INFO     | app.main:query:235 - Query processed in 2.15 seconds
+2025-03-04 12:31:46.071 | INFO     | app.main:log_requests:160 - Request completed - IP: 127.0.0.1, Path: /api/query, Time: 2.16s, Status: 200
+2025-03-04 12:31:56.299 | INFO     | app.main:log_requests:154 - Request received - IP: 127.0.0.1, Path: /api/query
+2025-03-04 12:31:56.304 | INFO     | app.main:query:183 - Processing query: 'Economy' with agent: summarization
+2025-03-04 12:31:56.304 | INFO     | app.agents.summarization_agent:process_query:135 - Processing query: 'Economy' with detail level: medium, max_results: 3
+2025-03-04 12:31:56.305 | INFO     | app.agents.base_agent:_retrieve_documents:49 - Retrieving documents for query: Economy, max_results: 3
+2025-03-04 12:31:57.175 | ERROR    | app.agents.base_agent:_retrieve_documents:67 - Error retrieving documents: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-03-04 12:31:57.176 | ERROR    | app.agents.base_agent:_retrieve_documents:68 - Traceback (most recent call last):
+  File "C:\Users\samue\OneDrive\Desktop\Research assistant\app\agents\base_agent.py", line 50, in _retrieve_documents
+    documents = self.vector_store.similarity_search_with_relevance_scores(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\vectorstores\base.py", line 554, in similarity_search_with_relevance_scores
+    docs_and_similarities = self._similarity_search_with_relevance_scores(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 1970, in _similarity_search_with_relevance_scores
+    return self.similarity_search_with_score(query, k, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 365, in similarity_search_with_score
+    self._embed_query(query),
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_community\vectorstores\qdrant.py", line 2065, in _embed_query
+    embedding = self.embeddings.embed_query(query)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 629, in embed_query
+    return self.embed_documents([text])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 588, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=engine)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_openai\embeddings\base.py", line 483, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\resources\embeddings.py", line 125, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1283, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 960, in request
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\samue\AppData\Local\Programs\Python\Python311\Lib\site-packages\openai\_base_client.py", line 1064, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-_k9zZ**************************************************************************************************************************************************ZNoA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+2025-03-04 12:31:57.177 | WARNING  | app.agents.summarization_agent:process_query:147 - No documents found for query: Economy
+2025-03-04 12:31:57.177 | INFO     | app.main:query:235 - Query processed in 0.87 seconds
+2025-03-04 12:31:57.178 | INFO     | app.main:log_requests:160 - Request completed - IP: 127.0.0.1, Path: /api/query, Time: 0.88s, Status: 200

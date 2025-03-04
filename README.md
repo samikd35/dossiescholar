@@ -19,37 +19,62 @@ A specialized application for retrieving, summarizing, and analyzing Ethiopian r
    pip install -r requirements.txt
    ```
 
-3. **Environment Setup**:
-   - Create a `.env` file in the root directory with the following variables:
-     ```
-     QDRANT_API_KEY=your_qdrant_api_key
-     QDRANT_URL=https://12bbc0a4-833b-4e01-880e-fa75e8e962f6.europe-west3-0.gcp.cloud.qdrant.io:6333
-     QDRANT_COLLECTION=AASTU
-     OPENAI_API_KEY=your_openai_api_key
-     ```
+3. **Set up environment variables**:
+   Create a `.env` file with the following variables:
+   ```
+   OPENAI_API_KEY=your_openai_api_key
+   QDRANT_URL=your_qdrant_url
+   QDRANT_API_KEY=your_qdrant_api_key
+   QDRANT_COLLECTION=your_collection_name
+   ENVIRONMENT=development
+   ```
 
 4. **Run the application**:
    ```
-   uvicorn app.main:app --reload
+   python -m uvicorn app.main:app --reload
    ```
 
-5. **Access the application**:
-   Open your browser and navigate to `http://localhost:8000`
+5. **Run tests**:
+   ```
+   pytest tests/
+   ```
 
 ## Project Structure
 
 ```
-research-assistant/
-├── app/
-│   ├── api/             # API routes
-│   ├── agents/          # Agent implementations
-│   ├── models/          # Data models
-│   ├── static/          # Static files (CSS, JS)
-│   ├── templates/       # HTML templates
-│   └── main.py          # Application entry point
-├── .env                 # Environment variables
-├── README.md            # Project documentation
-└── requirements.txt     # Dependencies
+├── app
+│   ├── agents                # LangGraph-based AI agents
+│   ├── models                # Data models and vector store
+│   ├── static                # Static files (CSS, JS)
+│   └── templates             # Jinja2 templates
+├── tests                     # Test files
+├── .env                      # Environment variables (not tracked by git)
+├── README.md                 # This file
+└── requirements.txt          # Project dependencies
+```
+
+## Latest Updates
+
+- **LangGraph Migration**: Converted agents from LangChain to LangGraph
+- **Error Handling**: Added comprehensive error handling
+- **Dependency Management**: Optimized dependency versions
+- **Logging**: Added structured logging with Loguru
+- **Performance Optimization**: Added caching for agent initialization
+- **Testing**: Added unit tests
+- **Documentation**: Enhanced code documentation and README
+
+## Environment Configuration
+
+The application supports different environment configurations through the `ENVIRONMENT` environment variable:
+- `development`: Enables auto-reload and verbose logging
+- `production`: Disables auto-reload and uses optimized settings
+
+## Troubleshooting
+
+If you encounter dependency issues with NumPy or other packages:
+```
+pip uninstall -y numpy
+pip install numpy==1.24.0
 ```
 
 ## Usage

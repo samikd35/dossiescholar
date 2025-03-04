@@ -7,10 +7,12 @@ from langgraph.graph import END
 import os
 import json
 from typing_extensions import TypedDict
+from loguru import logger
+import traceback
 
 from app.agents.base_agent import BaseAgent
 
-# Define the state for the Deep Research agent
+# Define the state schema for our agent
 class DeepResearchState(TypedDict):
     query: str
     documents: str
@@ -19,7 +21,7 @@ class DeepResearchState(TypedDict):
 
 class DeepResearchAgent(BaseAgent):
     """
-    Agent for conducting deep research on specific questions using multiple research papers.
+    Agent for conducting in-depth research and analysis of Ethiopian academic papers.
     """
     
     def __init__(self, vector_store):
@@ -30,11 +32,19 @@ class DeepResearchAgent(BaseAgent):
             vector_store: The Qdrant vector store containing research papers
         """
         super().__init__(vector_store)
-        self.llm = ChatOpenAI(
-            model_name="gpt-4-turbo",
-            temperature=0.3,
-            openai_api_key=os.getenv("OPENAI_API_KEY")
-        )
+        try:
+            # Set a longer timeout for the API call
+            self.llm = ChatOpenAI(
+                model_name="gpt-4o-mini", # Fallback to standard GPT-4 instead of turbo
+                temperature=0.0,
+                openai_api_key=os.getenv("OPENAI_API_KEY"),
+                request_timeout=120  # Increase timeout to 120 seconds
+            )
+            logger.info("Successfully initialized ChatOpenAI for deep research agent")
+        except Exception as e:
+            logger.error(f"Error initializing ChatOpenAI for deep research: {str(e)}")
+            logger.error(traceback.format_exc())
+            raise
         
         # Create the deep research prompt
         self.research_prompt = self._get_template()
