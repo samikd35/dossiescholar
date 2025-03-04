@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DossieScholar</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo-container">
+                <h1><i class="fas fa-book-open"></i> Ethiopian Research Assistant</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active" data-tab="search"><i class="fas fa-search"></i> Search</li>
+                    <li data-tab="history"><i class="fas fa-history"></i> History</li>
+                    <li data-tab="about"><i class="fas fa-info-circle"></i> About</li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="tab-content active" id="search-tab">
+                <div class="search-container">
+                    <h2>Explore Ethiopian Research Papers</h2>
+                    <p class="subtitle">Enter your research query and select an agent type</p>
+                    
+                    <div class="search-box">
+                        <input type="text" id="query-input" placeholder="Enter your research query...">
+                        <button id="search-button"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    
+                    <div class="agent-selection">
+                        <div class="agent-card active" data-agent="summarization">
+                            <div class="agent-icon"><i class="fas fa-file-alt"></i></div>
+                            <h3>Summarization</h3>
+                            <p>Generate concise summaries of research papers</p>
+                        </div>
+                        <div class="agent-card" data-agent="literature_review">
+                            <div class="agent-icon"><i class="fas fa-book"></i></div>
+                            <h3>Literature Review</h3>
+                            <p>Create comprehensive literature reviews</p>
+                        </div>
+                        <div class="agent-card" data-agent="deep_research">
+                            <div class="agent-icon"><i class="fas fa-microscope"></i></div>
+                            <h3>Deep Research</h3>
+                            <p>Provide in-depth analysis on research questions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="advanced-options">
+                        <h4><i class="fas fa-sliders-h"></i> Advanced Options</h4>
+                        <div class="options-grid">
+                            <div class="option">
+                                <label for="detail-level">Detail Level:</label>
+                                <select id="detail-level">
+                                    <option value="brief">Brief</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="detailed">Detailed</option>
+                                </select>
+                            </div>
+                            <div class="option">
+                                <label for="max-results">Max Results:</label>
+                                <select id="max-results">
+                                    <option value="3">3</option>
+                                    <option value="5" selected>5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-container" style="display: none;">
+                    <div class="results-header">
+                        <h2>Results</h2>
+                        <button id="back-to-search"><i class="fas fa-arrow-left"></i> New Search</button>
+                    </div>
+                    
+                    <div class="loading-spinner" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Processing your request...</p>
+                    </div>
+                    
+                    <div class="results-content">
+                        <div class="main-result">
+                            <div class="result-text" id="result-content">
+                                <!-- Result content will be inserted here -->
+                            </div>
+                        </div>
+                        
+                        <div class="sources-panel">
+                            <h3>Sources</h3>
+                            <div id="sources-list">
+                                <!-- Sources will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="history-tab">
+                <h2>Search History</h2>
+                <p class="subtitle">Your recent research queries</p>
+                <div id="history-list">
+                    <p class="empty-message">No history yet. Start by searching for research papers.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="about-tab">
+                <h2>About Ethiopian Research Assistant</h2>
+                <div class="about-content">
+                    <p>The Ethiopian Research Assistant is a specialized tool designed to help researchers access, summarize, and analyze Ethiopian research papers more efficiently.</p>
+                    
+                    <h3>Features</h3>
+                    <ul>
+                        <li><strong>Summarization:</strong> Generate concise summaries of research papers</li>
+                        <li><strong>Literature Review:</strong> Create comprehensive literature reviews on specific topics</li>
+                        <li><strong>Deep Research:</strong> Provide in-depth analysis on research questions</li>
+                    </ul>
+                    
+                    <h3>How It Works</h3>
+                    <p>Our system uses advanced AI to retrieve and process information from a database of Ethiopian research papers. All data is sourced exclusively from our Qdrant vector database of pre-indexed research papers.</p>
+                    
+                    <h3>Contact</h3>
+                    <p>For support or feedback, please contact us at <a href="mailto:support@ethiopianresearch.org">support@ethiopianresearch.org</a></p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Ethiopian Research Assistant | All rights reserved</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+</body>
+</html>
