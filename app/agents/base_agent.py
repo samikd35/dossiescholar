@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Tuple, List, Dict, Any
+from loguru import logger
+import traceback
 
 class BaseAgent(ABC):
     """
@@ -43,18 +45,26 @@ class BaseAgent(ABC):
         Returns:
             List of documents with their metadata
         """
-        documents = self.vector_store.similarity_search_with_relevance_scores(
-            query, 
-            k=max_results
-        )
-        
-        # Format the documents with metadata
-        formatted_docs = []
-        for doc, score in documents:
-            formatted_docs.append({
-                "content": doc.page_content,
-                "metadata": doc.metadata,
-                "relevance_score": round(score, 3)
-            })
+        try:
+            logger.info(f"Retrieving documents for query: {query}, max_results: {max_results}")
+            documents = self.vector_store.similarity_search_with_relevance_scores(
+                query, 
+                k=max_results
+            )
             
-        return formatted_docs
+            # Format the documents with metadata
+            formatted_docs = []
+            for doc, score in documents:
+                formatted_docs.append({
+                    "content": doc.page_content,
+                    "metadata": doc.metadata,
+                    "relevance_score": round(score, 3)
+                })
+            
+            logger.info(f"Retrieved {len(formatted_docs)} documents")
+            return formatted_docs
+        except Exception as e:
+            logger.error(f"Error retrieving documents: {str(e)}")
+            logger.error(traceback.format_exc())
+            # Return an empty list in case of error
+            return []
